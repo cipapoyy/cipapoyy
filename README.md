@@ -10,7 +10,7 @@
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Comic+Mono&size=20&pause=1000&color=E75480&center=true&vCenter=true&width=550&lines=Hello+World!+%F0%9F%8C%B8;I'm+Nabila+%F0%9F%90%B1;Welcome+to+my+GitHub!+%F0%9F%92%97;Let's+code+something+cute!+%E2%9C%A8"/>
+<img src="https://readme-typing-svg.demolab.com?font=Comic+Mono&size=20&pause=1000&color=E75480&center=true&vCenter=true&width=550&lines=Hello+World!+%F0%9F%8C%B8;I'm+Syifa+%F0%9F%90%B1;Welcome+to+my+GitHub!+%F0%9F%92%97;Let's+code+something+cute!+%E2%9C%A8"/>
 
 **୨୧ nabila syifa · she/her ୨୧**
 
