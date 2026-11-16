@@ -145,3 +145,9 @@ me.say_hi()
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFB6D9,100:FFC8DD&height=120&section=footer" width="100%"/>
 
 </div>
+
+## 🎮 Play My Game!
+
+Come and play my little pink cat game! 🐱💗
+
+[![PLAY MY CAT GAME](https://img.shields.io/badge/🎀_PLAY_MY_CAT_GAME-FF69B4?style=for-the-badge)](https://cipapoyy.github.io/cipapoyy/)
