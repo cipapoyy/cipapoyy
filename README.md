@@ -19,7 +19,9 @@
 ```python
 class Nabila:
     def __init__(self):
-        self.name = "Nabila"
+        self.name = "Nabila Syifa"
+        self.username = "cipapoyy"
+        self.pronouns = "she/her"
         self.role = "Informatics Student"
         self.interests = [
             "Web Development",
@@ -74,13 +76,13 @@ me.say_hi()
 
 \<div align="center">
 
-\<img height="165" src="[https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&hide_border=true&title_color=C084FC&icon_color=F472B6&text_color=FFFFFF&bg_color=0D1117](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME\&show_icons=true\&theme=tokyonight\&hide_border=true\&title_color=C084FC\&icon_color=F472B6\&text_color=FFFFFF\&bg_color=0D1117)" />
+\<img height="165" src="[https://github-readme-stats.vercel.app/api?username=cipapoyy&show_icons=true&theme=tokyonight&hide_border=true&title_color=C084FC&icon_color=F472B6&text_color=FFFFFF&bg_color=0D1117](https://github-readme-stats.vercel.app/api?username=cipapoyy\&show_icons=true\&theme=tokyonight\&hide_border=true\&title_color=C084FC\&icon_color=F472B6\&text_color=FFFFFF\&bg_color=0D1117)" />
 
-\<img height="165" src="[https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight&hide_border=true&title_color=C084FC&bg_color=0D1117](https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME\&layout=compact\&theme=tokyonight\&hide_border=true\&title_color=C084FC\&bg_color=0D1117)" />
+\<img height="165" src="[https://github-readme-stats.vercel.app/api/top-langs/?username=cipapoyy&layout=compact&theme=tokyonight&hide_border=true&title_color=C084FC&bg_color=0D1117](https://github-readme-stats.vercel.app/api/top-langs/?username=cipapoyy\&layout=compact\&theme=tokyonight\&hide_border=true\&title_color=C084FC\&bg_color=0D1117)" />
 
 \<br/>
 
-\<img src="[https://streak-stats.demolab.com?user=YOUR_USERNAME&theme=tokyonight&hide_border=true&ring=C084FC&fire=F472B6&currStreakLabel=C084FC](https://streak-stats.demolab.com?user=YOUR_USERNAME\&theme=tokyonight\&hide_border=true\&ring=C084FC\&fire=F472B6\&currStreakLabel=C084FC)" width="65%" />
+\<img src="[https://streak-stats.demolab.com?user=cipapoyy&theme=tokyonight&hide_border=true&ring=C084FC&fire=F472B6&currStreakLabel=C084FC](https://streak-stats.demolab.com?user=cipapoyy\&theme=tokyonight\&hide_border=true\&ring=C084FC\&fire=F472B6\&currStreakLabel=C084FC)" width="65%" />
 
 \</div>
 
@@ -90,7 +92,7 @@ me.say_hi()
 
 \<div align="center">
 
-\<a href="[https://github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME)"> \<img src="[https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)"/> \</a>
+\<a href="[https://github.com/cipapoyy](https://github.com/cipapoyy)"> \<img src="[https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)"/> \</a>
 
 \</div>
 
