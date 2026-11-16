@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabila's Pink Cat Adventure 🐱</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;align-items:center;
+  justify-content:center;padding:20px;
+  font-family:'Trebuchet MS',sans-serif;
+  background:linear-gradient(135deg,#fff0f5,#ffc8dd);
+  color:#a33b68;text-align:center
+}
+.game{
+  width:min(650px,100%);padding:22px;
+  background:#fffafd;border:4px solid #ffb6d9;
+  border-radius:28px;box-shadow:0 12px 30px #d77ca544
+}
+h1{color:#e75480;margin:5px}
+.subtitle{margin:8px 0 18px}
+.stats{display:flex;justify-content:space-around;
+  background:#fff0f5;border-radius:15px;padding:12px;
+  margin-bottom:12px;font-weight:bold}
+canvas{
+  display:block;width:100%;height:auto;
+  background:linear-gradient(#fff8fc,#ffe3ef);
+  border:3px solid #ffb6d9;border-radius:18px
+}
+button{
+  border:0;border-radius:25px;padding:12px 22px;
+  margin:8px 4px;background:#ff8fbd;color:white;
+  font-size:16px;font-weight:bold;cursor:pointer
+}
+button:hover{background:#e75480;transform:scale(1.04)}
+#message{font-weight:bold;min-height:24px;margin:10px}
+small{color:#bd7192}
+</style>
+</head>
+<body>
+<div class="game">
+  <h1>🐱 Nabila's Pink Cat Adventure 💗</h1>
+  <p class="subtitle">Help the little cat jump over obstacles!</p>
+
+  <div class="stats">
+    <span>⭐ Score: <span id="score">0</span></span>
+    <span>🏆 Best: <span id="best">0</span></span>
+    <span>💗 Lives: <span id="lives">3</span></span>
+  </div>
+
+  <canvas id="game" width="600" height="300"></canvas>
+  <div id="message">Press START to begin! 🌸</div>
+  <button id="start">🌷 START</button>
+  <button id="jump">🐾 JUMP</button>
+  <button id="restart">↻ RESTART</button>
+  <p><small>Use SPACE / ↑ or tap the game to jump!</small></p>
+</div>
+
+<script>
+const canvas=document.getElementById("game");
+const ctx=canvas.getContext("2d");
+const scoreEl=document.getElementById("score");
+const bestEl=document.getElementById("best");
+const livesEl=document.getElementById("lives");
+const message=document.getElementById("message");
+
+let cat,obstacles,score,lives,speed,frame,running,gameOver;
+let best=Number(localStorage.getItem("pinkCatBest")||0);
+bestEl.textContent=best;
+
+function reset(){
+  cat={x:75,y:220,w:48,h:48,vy:0,ground:true};
+  obstacles=[];score=0;lives=3;speed=4;frame=0;
+  running=false;gameOver=false;
+  updateStats();
+  message.textContent="Ready? Let's play! 💕";
+  draw();
+}
+function updateStats(){
+  scoreEl.textContent=score;
+  livesEl.textContent=lives;
+  bestEl.textContent=best;
+}
+function jump(){
+  if(!running||gameOver)return;
+  if(cat.ground){cat.vy=-12;cat.ground=false}
+}
+function drawCat(){
+  ctx.font="43px sans-serif";
+  ctx.fillText("🐱",cat.x,cat.y+40);
+  ctx.font="19px sans-serif";
+  ctx.fillText("🎀",cat.x+17,cat.y+2);
+}
+function draw(){
+  ctx.clearRect(0,0,600,300);
+  ctx.fillStyle="#ffd1e4";
+  ctx.fillRect(0,265,600,35);
+  ctx.strokeStyle="#f3a4c6";
+  ctx.lineWidth=3;
+  ctx.beginPath();ctx.moveTo(0,265);ctx.lineTo(600,265);ctx.stroke();
+
+  ctx.font="22px sans-serif";
+  ctx.fillText("☁️",100,55);
+  ctx.fillText("☁️",390,80);
+  ctx.fillText("🌸",520,245);
+  drawCat();
+
+  obstacles.forEach(o=>{
+    ctx.font="35px sans-serif";
+    ctx.fillText("🌷",o.x,o.y+30);
+  });
+}
+function hit(a,b){
+  return a.x+35>b.x+7 && a.x+10<b.x+27 &&
+         a.y+42>b.y && a.y+8<b.y+30;
+}
+function endGame(){
+  running=false;gameOver=true;
+  message.textContent="Game Over! 💗 Your score: "+score;
+  if(score>best){
+    best=score;
+    localStorage.setItem("pinkCatBest",best);
+  }
+  updateStats();
+}
+function loop(){
+  if(!running)return;
+  frame++;
+
+  cat.vy+=0.6;
+  cat.y+=cat.vy;
+  if(cat.y>=220){cat.y=220;cat.vy=0;cat.ground=true}
+
+  if(frame%85===0){
+    obstacles.push({x:610,y:235});
+  }
+  obstacles.forEach(o=>o.x-=speed);
+  obstacles=obstacles.filter(o=>o.x>-40);
+
+  for(let o of obstacles){
+    if(!o.passed&&hit(cat,o)){
+      o.passed=true;lives--;
+      updateStats();
+      if(lives<=0){endGame();draw();return}
+    }
+    if(!o.passed&&o.x<cat.x){
+      o.passed=true;
+      score+=10;
+      speed=Math.min(8,speed+0.12);
+      updateStats();
+    }
+  }
+
+  draw();
+  requestAnimationFrame(loop);
+}
+document.getElementById("start").onclick=()=>{
+  if(running)return;
+  if(gameOver)reset();
+  running=true;
+  message.textContent="Jump, little kitty! 🐾";
+  loop();
+};
+document.getElementById("jump").onclick=jump;
+document.getElementById("restart").onclick=()=>{
+  reset();running=true;
+  message.textContent="Let's try again! 💕";
+  loop();
+};
+document.addEventListener("keydown",e=>{
+  if(e.code==="Space"||e.code==="ArrowUp"){
+    e.preventDefault();jump();
+  }
+});
+canvas.addEventListener("pointerdown",jump);
+reset();
+</script>
+</body>
+</html>
