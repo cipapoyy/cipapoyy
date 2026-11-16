@@ -1,6 +1,6 @@
  <div align="center">
 
-<img src="./pink-cat-banner.png" width="100%" alt="Pink kawaii coding cat banner"/>
+<img src="./Kawaii%20Cat%20Coding%20World.png" width="100%" alt="Pink kawaii coding cat banner"/>
 
 </div>
 
