@@ -21,9 +21,11 @@ body{
 }
 h1{color:#e75480;margin:5px}
 .subtitle{margin:8px 0 18px}
-.stats{display:flex;justify-content:space-around;
+.stats{
+  display:flex;justify-content:space-around;
   background:#fff0f5;border-radius:15px;padding:12px;
-  margin-bottom:12px;font-weight:bold}
+  margin-bottom:12px;font-weight:bold
+}
 canvas{
   display:block;width:100%;height:auto;
   background:linear-gradient(#fff8fc,#ffe3ef);
@@ -37,9 +39,15 @@ button{
 button:hover{background:#e75480;transform:scale(1.04)}
 #message{font-weight:bold;min-height:24px;margin:10px}
 small{color:#bd7192}
+.music-button{
+  background:#e75480;
+  font-size:14px;
+  padding:10px 18px
+}
 </style>
 </head>
 <body>
+
 <div class="game">
   <h1>🐱 Nabila's Pink Cat Adventure 💗</h1>
   <p class="subtitle">Help the little cat jump over obstacles!</p>
@@ -51,60 +59,232 @@ small{color:#bd7192}
   </div>
 
   <canvas id="game" width="600" height="300"></canvas>
+
   <div id="message">Press START to begin! 🌸</div>
+
   <button id="start">🌷 START</button>
   <button id="jump">🐾 JUMP</button>
   <button id="restart">↻ RESTART</button>
+
+  <br>
+  <button id="music" class="music-button">🎵 MUSIC: ON</button>
+
   <p><small>Use SPACE / ↑ or tap the game to jump!</small></p>
+  <p><small>🎀 Enjoy the pink kitty adventure! 🎀</small></p>
 </div>
 
 <script>
 const canvas=document.getElementById("game");
 const ctx=canvas.getContext("2d");
+
 const scoreEl=document.getElementById("score");
 const bestEl=document.getElementById("best");
 const livesEl=document.getElementById("lives");
 const message=document.getElementById("message");
+const musicButton=document.getElementById("music");
+
+// ===============================
+// MUSIK KAWAII 8-BIT
+// ===============================
+
+let audioContext=null;
+let musicTimer=null;
+let musicStep=0;
+let musicEnabled=true;
+
+const melody=[
+  523.25,659.25,783.99,659.25,
+  587.33,698.46,880,698.46,
+  523.25,659.25,783.99,1046.50,
+  880,783.99,659.25,587.33
+];
+
+function setupAudio(){
+  if(!audioContext){
+    audioContext=new (window.AudioContext||window.webkitAudioContext)();
+  }
+
+  if(audioContext.state==="suspended"){
+    audioContext.resume();
+  }
+}
+
+function playTone(frequency,duration=0.15,type="sine",volume=0.07){
+  if(!audioContext)return;
+
+  const oscillator=audioContext.createOscillator();
+  const gain=audioContext.createGain();
+
+  oscillator.type=type;
+  oscillator.frequency.value=frequency;
+
+  gain.gain.setValueAtTime(volume,audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(
+    0.001,audioContext.currentTime+duration
+  );
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscillator.start();
+  oscillator.stop(audioContext.currentTime+duration);
+}
+
+function startMusic(){
+  if(!musicEnabled)return;
+
+  setupAudio();
+  stopMusic();
+
+  musicStep=0;
+
+  musicTimer=setInterval(()=>{
+    if(!musicEnabled)return;
+
+    const note=melody[musicStep%melody.length];
+
+    playTone(note,0.22,"square",0.035);
+
+    // Nada bass lembut setiap beberapa ketukan
+    if(musicStep%4===0){
+      playTone(note/2,0.35,"triangle",0.025);
+    }
+
+    musicStep++;
+  },260);
+}
+
+function stopMusic(){
+  if(musicTimer){
+    clearInterval(musicTimer);
+    musicTimer=null;
+  }
+}
+
+function toggleMusic(){
+  musicEnabled=!musicEnabled;
+
+  if(musicEnabled){
+    musicButton.textContent="🎵 MUSIC: ON";
+    startMusic();
+  }else{
+    musicButton.textContent="🔇 MUSIC: OFF";
+    stopMusic();
+  }
+}
+
+musicButton.onclick=()=>{
+  setupAudio();
+  toggleMusic();
+};
+
+// Efek suara melompat
+function jumpSound(){
+  if(!musicEnabled)return;
+  setupAudio();
+  playTone(650,0.10,"sine",0.08);
+  setTimeout(()=>{
+    if(musicEnabled)playTone(900,0.12,"sine",0.06);
+  },70);
+}
+
+// Efek suara mendapatkan skor
+function scoreSound(){
+  if(!musicEnabled)return;
+  setupAudio();
+  playTone(880,0.12,"square",0.06);
+  setTimeout(()=>{
+    if(musicEnabled)playTone(1174.66,0.16,"square",0.06);
+  },100);
+}
+
+// Efek suara terkena rintangan
+function hitSound(){
+  if(!musicEnabled)return;
+  setupAudio();
+  playTone(220,0.25,"sawtooth",0.06);
+}
+
+// Efek suara game over
+function gameOverSound(){
+  if(!musicEnabled)return;
+  setupAudio();
+  playTone(440,0.25,"triangle",0.06);
+  setTimeout(()=>{
+    if(musicEnabled)playTone(349.23,0.35,"triangle",0.06);
+  },200);
+}
+
+// ===============================
+// GAME
+// ===============================
 
 let cat,obstacles,score,lives,speed,frame,running,gameOver;
+
 let best=Number(localStorage.getItem("pinkCatBest")||0);
 bestEl.textContent=best;
 
 function reset(){
   cat={x:75,y:220,w:48,h:48,vy:0,ground:true};
-  obstacles=[];score=0;lives=3;speed=4;frame=0;
-  running=false;gameOver=false;
+
+  obstacles=[];
+  score=0;
+  lives=3;
+  speed=4;
+  frame=0;
+
+  running=false;
+  gameOver=false;
+
   updateStats();
   message.textContent="Ready? Let's play! 💕";
+
   draw();
 }
+
 function updateStats(){
   scoreEl.textContent=score;
   livesEl.textContent=lives;
   bestEl.textContent=best;
 }
+
 function jump(){
   if(!running||gameOver)return;
-  if(cat.ground){cat.vy=-12;cat.ground=false}
+
+  if(cat.ground){
+    cat.vy=-12;
+    cat.ground=false;
+    jumpSound();
+  }
 }
+
 function drawCat(){
   ctx.font="43px sans-serif";
   ctx.fillText("🐱",cat.x,cat.y+40);
+
   ctx.font="19px sans-serif";
   ctx.fillText("🎀",cat.x+17,cat.y+2);
 }
+
 function draw(){
   ctx.clearRect(0,0,600,300);
+
   ctx.fillStyle="#ffd1e4";
   ctx.fillRect(0,265,600,35);
+
   ctx.strokeStyle="#f3a4c6";
   ctx.lineWidth=3;
-  ctx.beginPath();ctx.moveTo(0,265);ctx.lineTo(600,265);ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(0,265);
+  ctx.lineTo(600,265);
+  ctx.stroke();
 
   ctx.font="22px sans-serif";
   ctx.fillText("☁️",100,55);
   ctx.fillText("☁️",390,80);
   ctx.fillText("🌸",520,245);
+
   drawCat();
 
   obstacles.forEach(o=>{
@@ -112,43 +292,76 @@ function draw(){
     ctx.fillText("🌷",o.x,o.y+30);
   });
 }
+
 function hit(a,b){
-  return a.x+35>b.x+7 && a.x+10<b.x+27 &&
-         a.y+42>b.y && a.y+8<b.y+30;
+  return a.x+35>b.x+7 &&
+         a.x+10<b.x+27 &&
+         a.y+42>b.y &&
+         a.y+8<b.y+30;
 }
+
 function endGame(){
-  running=false;gameOver=true;
+  running=false;
+  gameOver=true;
+
+  stopMusic();
+  gameOverSound();
+
   message.textContent="Game Over! 💗 Your score: "+score;
+
   if(score>best){
     best=score;
     localStorage.setItem("pinkCatBest",best);
   }
+
   updateStats();
 }
+
 function loop(){
   if(!running)return;
+
   frame++;
 
   cat.vy+=0.6;
   cat.y+=cat.vy;
-  if(cat.y>=220){cat.y=220;cat.vy=0;cat.ground=true}
+
+  if(cat.y>=220){
+    cat.y=220;
+    cat.vy=0;
+    cat.ground=true;
+  }
 
   if(frame%85===0){
     obstacles.push({x:610,y:235});
   }
+
   obstacles.forEach(o=>o.x-=speed);
+
   obstacles=obstacles.filter(o=>o.x>-40);
 
   for(let o of obstacles){
+
     if(!o.passed&&hit(cat,o)){
-      o.passed=true;lives--;
+      o.passed=true;
+      lives--;
+
+      hitSound();
       updateStats();
-      if(lives<=0){endGame();draw();return}
+
+      if(lives<=0){
+        endGame();
+        draw();
+        return;
+      }
     }
+
     if(!o.passed&&o.x<cat.x){
       o.passed=true;
+
       score+=10;
       speed=Math.min(8,speed+0.12);
+
+      scoreSound();
       updateStats();
     }
   }
@@ -156,26 +369,52 @@ function loop(){
   draw();
   requestAnimationFrame(loop);
 }
+
+// ===============================
+// TOMBOL GAME
+// ===============================
+
 document.getElementById("start").onclick=()=>{
   if(running)return;
+
+  setupAudio();
+
   if(gameOver)reset();
+
+  if(musicEnabled)startMusic();
+
   running=true;
   message.textContent="Jump, little kitty! 🐾";
+
   loop();
 };
+
 document.getElementById("jump").onclick=jump;
+
 document.getElementById("restart").onclick=()=>{
-  reset();running=true;
+  setupAudio();
+
+  reset();
+
+  if(musicEnabled)startMusic();
+
+  running=true;
   message.textContent="Let's try again! 💕";
+
   loop();
 };
+
 document.addEventListener("keydown",e=>{
   if(e.code==="Space"||e.code==="ArrowUp"){
-    e.preventDefault();jump();
+    e.preventDefault();
+    jump();
   }
 });
+
 canvas.addEventListener("pointerdown",jump);
+
 reset();
+
 </script>
 </body>
 </html>
