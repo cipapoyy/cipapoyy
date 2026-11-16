@@ -1,20 +1,16 @@
-&#x20;\<div align="center">
+<div align="center">
 
-\<!-- 🎀 BANNER UTAMA: TETAP PAKAI GAMBAR PERTAMA -->
+<!-- BANNER PINK PERTAMA -->
 
-\<img src="./Kawaii%20Cat%20Coding%20World.png" width="100%" alt="Pink kawaii coding cat banner"/>
+<img src="./Kawaii%20Cat%20Coding%20World.png" width="100%" alt="Pink kawaii coding cat banner"/>
 
-\<!-- 🐱 KUCING ANIMASI -->
-
-\<img src="./kawaii_cat_jumping_animation.gif" width="150" alt="Cute jumping pink cat"/>
-
-\<h3>🎀 Welcome to my little coding world! 💗\</h3>
+<h3>🎀 Welcome to my little coding world! 💗</h3>
 
 Kawaii • Pink pastel • Cats • Coding
 
 🌸 Cute cat · 💗 Pink theme · ✨ Animations
 
-\</div>
+</div>
 
 ---
 
