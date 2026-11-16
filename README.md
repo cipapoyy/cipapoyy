@@ -88,6 +88,12 @@ me.say_hi()
 
 ---
 
+<div>
+   <img src="https://github-readme-activity-graph.vercel.app/graph?username=cipapoyy&bg_color=0D1117&color=F472B6&line=F472B6&point=FFFFFF&area=true&hide_border=true" width="100%" /> 
+</div>
+
+---
+
 ## 🌐 Let's Connect!
 
 <div align="center">
