@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,25,30&height=200&section=header&text=Hello,%20I%27m%20Nabila!&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Informatics%20Student%20%7C%20Tech%20Enthusiast&descAlignY=55&descSize=16" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:F9A8D4,50:F472B6,100:EC4899&height=200&section=header&text=Hello,%20I%27m%20Nabila!&fontSize=40&fontColor=831843&fontAlignY=35&desc=Informatics%20Student%20%7C%20Tech%20Enthusiast&descAlignY=55&descSize=16" width="100%"/>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=21&pause=1000&color=C084FC&center=true&vCenter=true&width=600&lines=Welcome+to+my+GitHub!+%F0%9F%92%9C;Learning+%7C+Coding+%7C+Creating;Turning+ideas+into+reality+%E2%9C%A8" />
 
