@@ -1,122 +1,115 @@
+<!-- 🌸 PINK PURPLE AESTHETIC GITHUB PROFILE 🌸 -->
+
 <div align="center">
 
-<!-- BANNER PINK PERTAMA -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:F9A8D4,50:F472B6,100:EC4899&height=200&section=header&text=Hello,%20I%27m%20Nabila!&fontSize=40&fontColor=831843&fontAlignY=35&desc=Informatics%20Student%20%7C%20Tech%20Enthusiast&descAlignY=55&descSize=16" width="100%"/>
 
-<img src="./Kawaii%20Cat%20Coding%20World.png" width="100%" alt="Pink kawaii coding cat banner"/>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=21&pause=1000&color=C084FC&center=true&vCenter=true&width=600&lines=Welcome+to+my+GitHub!+%F0%9F%92%9C;Learning+%7C+Coding+%7C+Creating;Turning+ideas+into+reality+%E2%9C%A8" />
 
-<h3>🎀 Welcome to my little coding world! 💗</h3>
+<br/>
 
-Kawaii • Pink pastel • Cats • Coding
-
-🌸 Cute cat · 💗 Pink theme · ✨ Animations
+💜 *Keep Learning, Keep Growing, Keep Creating!* 💜
 
 </div>
 
 ---
 
-\<div align="center">
-
-## 🎀 ABOUT ME 🎀
-
-**୨୧ Nabila Syifa · she/her ୨୧**
-
-🌷 Informatics Student | 💻 Developer in Progress
-
-*ੈ✩‧₊˚ Dream big, code bigger! ˚₊‧✩ੈ*
-
-\</div>
+## 🌷 About Me
 
 ```python
 class Nabila:
     def __init__(self):
         self.name = "Nabila Syifa"
         self.username = "cipapoyy"
+        self.pronouns = "she/her"
         self.role = "Informatics Student"
-
         self.interests = [
             "Web Development",
             "Machine Learning",
             "Image Processing",
             "Database Management"
         ]
-
-        self.hobbies = [
-            "Coding",
-            "Learning new things",
-            "Exploring technology"
-        ]
+        self.hobbies = ["Coding", "Learning", "Exploring Technology"]
 
     def say_hi(self):
-        print("Welcome to my little coding world! 💗")
+        print("Thanks for visiting my GitHub! 💜")
 
 me = Nabila()
 me.say_hi()
 ```
 
-- 🎓 Informatics Student.
-- 💻 Interested in Software Development.
-- 🌱 Currently learning new technologies.
-- ☕ Building creative projects.
-- 🐾 Always curious and excited to learn!
+- 🎓 Informatics Student
+- 💻 Interested in Software Development
+- 🌱 Currently learning new technologies
+- ☕ Building projects and gaining experience
+- ✨ Always excited to learn something new!
 
 ---
 
-\<div align="center">
+## 💻 Tech Stack
 
-## 🧸 MY TECH WORLD
+<div align="center">
 
-**♡ Programming Languages ♡**
+### Languages
 
-\<img src="[https://skillicons.dev/icons?i=python,php,html,css&theme=light](https://skillicons.dev/icons?i=python,php,html,css\&theme=light)"/>
+<img src="https://skillicons.dev/icons?i=python,php,html,css" />
 
-**♡ Frameworks & Tools ♡**
+### Frameworks & Tools
 
-\<img src="[https://skillicons.dev/icons?i=laravel,opencv,postgres,mysql,git,github,vscode&theme=light](https://skillicons.dev/icons?i=laravel,opencv,postgres,mysql,git,github,vscode\&theme=light)"/>
+<img src="https://skillicons.dev/icons?i=laravel,opencv,postgres,mysql,git,github,vscode" />
 
-\</div>
+</div>
 
 ---
 
-\<div align="center">
+## 🚀 My Featured Projects
 
-## 🌷 MY LITTLE PROJECTS
-
-\</div>
-
-| 🎀 Project        | 💌 Description                            |
+| Project           | Description                               |
 | ----------------- | ----------------------------------------- |
 | ☕ CoffeeVision    | Coffee Bean Classification Based on Color |
-| 📚 Library System | Library Management using Laravel          |
+| 📚 Library System | Library Management System using Laravel   |
 | 🚗 Vehicle Rental | Vehicle Rental Management System          |
 
 ---
 
-\<div align="center">
+## 📊 GitHub Statistics
 
-## 💗 MY GITHUB STATISTICS
+<div align="center">
 
-\<img src="[https://github-readme-stats.vercel.app/api?username=cipapoyy&show_icons=true&hide_border=true&bg_color=FFF0F5&title_color=E75480&icon_color=FF69B4&text_color=9D5275](https://github-readme-stats.vercel.app/api?username=cipapoyy\&show_icons=true\&hide_border=true\&bg_color=FFF0F5\&title_color=E75480\&icon_color=FF69B4\&text_color=9D5275)" width="95%"/>
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=cipapoyy&show_icons=true&theme=tokyonight&hide_border=true&title_color=C084FC&icon_color=F472B6&text_color=FFFFFF&bg_color=0D1117" />
 
-\<br/>
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cipapoyy&layout=compact&theme=tokyonight&hide_border=true&title_color=C084FC&bg_color=0D1117" />
 
-\<img src="[https://github-readme-stats.vercel.app/api/top-langs/?username=cipapoyy&layout=compact&hide_border=true&bg_color=FFF0F5&title_color=E75480&text_color=9D5275](https://github-readme-stats.vercel.app/api/top-langs/?username=cipapoyy\&layout=compact\&hide_border=true\&bg_color=FFF0F5\&title_color=E75480\&text_color=9D5275)"/>
+<br/>
 
-\<br/>
+<img src="https://streak-stats.demolab.com?user=cipapoyy&theme=tokyonight&hide_border=true&ring=C084FC&fire=F472B6&currStreakLabel=C084FC" width="65%" />
 
-\<img src="[https://streak-stats.demolab.com?user=cipapoyy&theme=rose&hide_border=true&background=FFF0F5&ring=FF69B4&fire=E75480&currStreakLabel=E75480](https://streak-stats.demolab.com?user=cipapoyy\&theme=rose\&hide_border=true\&background=FFF0F5\&ring=FF69B4\&fire=E75480\&currStreakLabel=E75480)" width="95%"/>
+</div>
 
-\</div>
+---
+
+<div>
+   <img src="https://github-readme-activity-graph.vercel.app/graph?username=cipapoyy&bg_color=0D1117&color=F472B6&line=F472B6&point=FFFFFF&area=true&hide_border=true" width="100%" /> 
+</div>
+
+---
+
+## 🌐 Let's Connect!
+
+<div align="center">
+
+<a href="https://github.com/cipapoyy"> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/> </a>
+
+</div>
 
 ---
 
 <div align="center">
 
-<img src="./kawaii_cat_jumping_animation.gif"
-     width="170"
-     alt="Cute jumping pink cat"/>
+### 💜 Thanks for visiting my profile!
 
-### 🎀 Thanks for visiting my little world! 💗
+*“Every expert was once a beginner.”* ✨
 
-🐾 Keep coding and keep smiling! 🌸
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,25,30&height=100&section=footer" width="100%"/>
 
 </div>
