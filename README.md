@@ -150,4 +150,4 @@ me.say_hi()
 
 Come and play my little pink cat game! 🐱💗
 
-[![PLAY MY CAT GAME](https://img.shields.io/badge/🎀_PLAY_MY_CAT_GAME-FF69B4?style=for-the-badge)](https://cipapoyy.github.io/cipapoyy/)
+[🎀 PLAY MY CAT GAME](https://cipapoyy.github.io/cipapoyy/)
